@@ -1,0 +1,18 @@
+{
+  "name": "timeslot-handler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jstimeconverter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.chalmers.se:courses/dit355/test-teams-formation/team-3/timeslot-handler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^16.11.11"
+  }
+}
