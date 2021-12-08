@@ -8,7 +8,6 @@ var publish = function sendTimeslot(timeslot){
             if(timeslot===undefined){
                 client.end()
             }else{
-                console.log(timeslot);
                 client.publish('Timeslot',timeslot)
             }
     })
