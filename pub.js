@@ -51,6 +51,19 @@ function sendTimeslot(timeslot){
     })
 }
 
+var pubClinic = function sendClinic(clinic){
+    client.on('connect', function(){
+            if(clinic===undefined){
+                client.end()
+            }else{
+                client.publish('Clinic', JSON.stringify(clinic))
+                console.log(JSON.stringify(clinic))
+            }
+            
+    })
+
+}
+
 
 function sendClinic(clinic){
     client.on('connect', function(){
@@ -66,7 +79,7 @@ function sendClinic(clinic){
 }
 
 //sendClinic(clinic)
-sendTimeslot("2023")
+//sendTimeslot("2023")
     
 
 
@@ -76,4 +89,4 @@ sendTimeslot("2023")
 
 
 
-module.exports = {pubTimeslot};
+module.exports = {pubTimeslot, pubClinic};
