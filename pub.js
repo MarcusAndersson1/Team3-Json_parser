@@ -42,7 +42,7 @@ client.subscribe("Clinic/true")
 
 var listen = function listen() {
     client.on('message', function (topic, message) {
-        console.log(message + topic)
+        // console.log(message + topic)
     }
     )
 }
@@ -67,7 +67,7 @@ var pubClinic = function sendClinic(clinic) {
             client.end()
         } else {
             client.publish('Clinic', JSON.stringify(clinic))
-            console.log(JSON.stringify(clinic))
+            //console.log(JSON.stringify(clinic))
         }
 
     })
