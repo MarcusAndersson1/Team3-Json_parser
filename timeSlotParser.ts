@@ -13,7 +13,7 @@ async function timeSlotParser() {
     console.log("\nDentist Clinic: " + arr[index]['name'])
 
     console.log(arr[index])
-    let temparray:any[] = []
+    let temparray = []
     let clinic = {clinic: arr[index],
                   timeslots: temparray}
     let counter = 0
