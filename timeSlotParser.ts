@@ -13,7 +13,9 @@ async function timeSlotParser() {
     console.log("\nDentist Clinic: " + arr[index]['name'])
 
     console.log(arr[index])
-    await publish.pubClinic(arr[index])
+    let temparray:any[] = []
+    let clinic = {clinic: arr[index],
+                  timeslots: temparray}
     let counter = 0
     let arrOpeningHours = arr[index]['openinghours']
     // let daysOpen = Object.keys(arrOpeningHours)
@@ -43,8 +45,11 @@ async function timeSlotParser() {
           continue
         }
         console.log(new Date(d).toString())
-
-        publish.pubTimeslot(new Date(d).toString())
+        let stringDate = new Date(d).toString()
+        let abc = {dateTime: stringDate,
+                  isAvailiable: true,
+                  user: null}
+        clinic.timeslots.push(abc)
 
         counter++
 
@@ -52,11 +57,13 @@ async function timeSlotParser() {
           break
         }
       }
+      await publish.pubClinic(clinic)
     }
     console.log("Amount of timeslots: " + counter)
   }
   console.log("-- End of Parsing --")
   console.log((arr[0]))
+  
 }
 
 timeSlotParser()
