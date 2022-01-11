@@ -1,14 +1,23 @@
-var publish = require("./pub")
-
+var publish = require("./pub.js")
+const get = require('cross-fetch');
 var date = new Date();
 var json = JSON.stringify(date);
 
-const dentists = require('./dentists.json');
 
-var arr = dentists['dentists']
+var arr = []
 
 const weekdays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+
+async function getJson(){
+    let response = await get('https://raw.githubusercontent.com/feldob/dit355_2020/master/dentists.json')
+    let jsondata = await response.json()
+    console.log(jsondata)
+    arr = jsondata['dentists']
+}
+
 async function timeSlotParser() {
+
+await getJson()
   for (let index = 0; index < arr.length; index++) { // Specific Clinic
     //console.log("\nDentist Clinic: " + arr[index]['name'])
     
@@ -47,7 +56,7 @@ async function timeSlotParser() {
        // console.log(new Date(d).toString())
         let stringDate = new Date(d).toString()
         let abc = {dateTime: stringDate,
-                  isAvailiable: true,
+                  isAvailable: true,
                   user: null}
         clinic.timeslots.push(abc)
 
@@ -66,7 +75,6 @@ async function timeSlotParser() {
   //console.log((arr[0]))
   
 }
-
 timeSlotParser()
 // > CLINIC 1
 // > 150 timeslots

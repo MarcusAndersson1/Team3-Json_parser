@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "jstimeconverter.js",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +17,9 @@
     "@types/node": "^16.11.11"
   },
   "dependencies": {
-    "mqtt": "^4.2.8"
+    "axios": "^0.24.0",
+    "cross-fetch": "^3.1.4",
+    "mqtt": "^4.2.8",
+    "node-fetch": "^3.1.0"
   }
 }
